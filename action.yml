@@ -1,0 +1,18 @@
+name: 'Set tag npm'
+description: 'This action changes the package.json file version'
+inputs:
+  github-token:
+    description: 'GitHub token'
+    required: true
+  new-version:
+    description: 'new version to package.json'
+    required: true
+  branch:
+    description: 'Branch where you want to modify package.json'
+    required: false
+outputs:
+  success:
+    description: 'the result will be printed here'
+runs:
+  using: 'node12'
+  main: 'dist/index.js'
