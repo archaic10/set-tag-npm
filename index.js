@@ -42,7 +42,7 @@ function modifyVersionAndUploadFile(data, sha){
 
 function getContent(){
     let param = {
-        owner: github.context.actor,
+        owner: github.context.payload.repository.owner.name,
         repo: github.context.payload.repository.name,
         path: 'package.json',
     }
@@ -78,7 +78,7 @@ function modifyVersion (package_json_obj){
 
 async function uploadGithub(content, fileName, sha){
     let param = {
-        owner: github.context.actor,
+        owner: github.context.payload.repository.owner.name,
         repo: github.context.payload.repository.name,
         path: 'package.json',
         message: `ci: Update ${fileName}`,
